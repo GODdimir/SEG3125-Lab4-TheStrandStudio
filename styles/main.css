@@ -1,24 +1,27 @@
 /* styles/main.css */
 
-:root {
-    /* THEME: Warm Minimalist (Matches studio-interior.png) */
-    
-    /* Primary: Warm Wood Tone (Matches the chairs/mirrors) */
+:root {    
+    /* Primary */
     --primary-color: #c5a065; 
     
-    /* Dark Wood: For text contrast */
+    /* Dark Wood */
     --dark-wood: #8d6e42; 
     
-    /* Accent: Plant Green (Matches the plants) */
+    /* Accent */
     --accent-color: #5d9b5e; 
     
     /* Backgrounds */
-    --light-bg: #fdfbf7;      /* Warm white/cream instead of cold grey */
+    --light-bg: #fdfbf7;
     --white-bg: #ffffff;
     
     /* Text */
-    --text-main: #4a4a4a;     /* Soft Charcoal */
+    --text-main: #4a4a4a;
     --text-light: #777777;
+}
+
+/* Enable smooth scrolling for the whole page */
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -47,7 +50,7 @@ body {
 }
 
 .nav-link:hover {
-    color: var(--accent-color) !important; /* Green hover */
+    color: var(--accent-color) !important;
 }
 
 /* 2. Hero Section */
@@ -64,7 +67,19 @@ body {
     letter-spacing: -1px;
 }
 
-/* 3. Buttons */
+/* 3. Section Styling */
+section {
+    position: relative;
+    scroll-margin-top: 100px;
+}
+
+h2 {
+    color: var(--dark-wood);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* 4. Buttons */
 .btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
@@ -89,7 +104,7 @@ body {
     color: white;
 }
 
-/* 4. Service Cards */
+/* 5. Service Cards */
 .service-card {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     background: white;
@@ -98,7 +113,7 @@ body {
 
 .service-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(141, 110, 66, 0.1) !important; /* Warm shadow */
+    box-shadow: 0 15px 30px rgba(141, 110, 66, 0.1) !important;
     border-color: var(--primary-color);
 }
 
@@ -109,15 +124,15 @@ body {
 }
 
 .text-primary {
-    color: var(--accent-color) !important; /* Green prices */
+    color: var(--accent-color) !important;
 }
 
-/* 5. Booking Section */
+/* 6. Booking Section */
 .bg-custom-light {
     background-color: var(--light-bg);
 }
 
-/* 6. Form Styling */
+/* 7. Form Styling */
 .form-control, .form-select {
     border-radius: 4px;
     padding: 12px;
@@ -129,7 +144,7 @@ body {
     box-shadow: 0 0 0 0.2rem rgba(197, 160, 101, 0.25);
 }
 
-/* 7. Image Handling */
+/* 8. Image Handling */
 .card-img-top {
     height: 200px;
     object-fit: cover;
@@ -139,7 +154,7 @@ body {
 .team-img {
     width: 150px;
     height: 150px;
-    object-fit: cover; /* Ensures avatars aren't squished */
+    object-fit: cover; 
 }
 
 /* Footer */
