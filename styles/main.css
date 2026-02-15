@@ -1,105 +1,153 @@
 /* styles/main.css */
 
 :root {
-    /* BRIGHTER THEME: Navy Blue, Slate, and White */
-    --primary-color: #2c3e50; /* Navy Blue - Professional & Bold */
-    --secondary-color: #95a5a6; /* Slate Grey - Clean accents */
-    --accent-color: #3498db;  /* Bright Blue - For buttons/highlights */
-    --light-bg: #f8f9fa;      /* Very light grey for section contrast */
+    /* THEME: Warm Minimalist (Matches studio-interior.png) */
+    
+    /* Primary: Warm Wood Tone (Matches the chairs/mirrors) */
+    --primary-color: #c5a065; 
+    
+    /* Dark Wood: For text contrast */
+    --dark-wood: #8d6e42; 
+    
+    /* Accent: Plant Green (Matches the plants) */
+    --accent-color: #5d9b5e; 
+    
+    /* Backgrounds */
+    --light-bg: #fdfbf7;      /* Warm white/cream instead of cold grey */
+    --white-bg: #ffffff;
+    
+    /* Text */
+    --text-main: #4a4a4a;     /* Soft Charcoal */
+    --text-light: #777777;
 }
 
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #333;
+    color: var(--text-main);
     line-height: 1.6;
+    background-color: var(--white-bg);
 }
 
 /* 1. Navbar */
-.navbar-brand {
-    color: var(--primary-color) !important;
-    letter-spacing: 1px;
-}
-.nav-link {
-    color: #555 !important;
-    font-weight: 500;
-}
-.nav-link:hover {
-    color: var(--accent-color) !important;
+.navbar {
+    background-color: rgba(255, 255, 255, 0.98) !important;
+    border-bottom: 1px solid #eee;
 }
 
-/* 2. Hero Section - Bright & Airy */
+.navbar-brand {
+    color: var(--dark-wood) !important;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.nav-link {
+    color: var(--text-main) !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-color) !important; /* Green hover */
+}
+
+/* 2. Hero Section */
 .hero-section {
-    background-color: white;
+    background-color: var(--light-bg);
     padding: 100px 0;
     text-align: center;
-    /* Subtle texture or very light gradient */
-    background: linear-gradient(to bottom, #ffffff 0%, #f1f2f6 100%);
+    border-bottom: 1px solid #efebe4;
 }
 
 .hero-section h1 {
-    color: var(--primary-color);
+    color: var(--dark-wood);
+    font-weight: 800;
     letter-spacing: -1px;
 }
 
-/* 3. Section Styling */
-section {
-    position: relative;
+/* 3. Buttons */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    font-weight: 600;
 }
 
-h2 {
-    color: var(--primary-color);
-    margin-bottom: 20px;
+.btn-primary:hover {
+    background-color: var(--dark-wood);
+    border-color: var(--dark-wood);
 }
 
-/* 4. Service Cards - Clean & Minimal */
+.btn-outline-dark {
+    color: var(--dark-wood);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-dark:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+/* 4. Service Cards */
 .service-card {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     background: white;
+    border: 1px solid #f0f0f0;
 }
 
 .service-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    box-shadow: 0 15px 30px rgba(141, 110, 66, 0.1) !important; /* Warm shadow */
+    border-color: var(--primary-color);
 }
 
 .card-title {
     font-weight: bold;
-    color: var(--primary-color);
+    color: var(--dark-wood);
     margin-top: 15px;
 }
 
-/* 5. Booking Section Background */
-.bg-custom-light {
-    background-color: #e9ecef; /* Slightly darker grey to frame the form */
+.text-primary {
+    color: var(--accent-color) !important; /* Green prices */
 }
 
-/* 6. Form Styling (Affordance) */
+/* 5. Booking Section */
+.bg-custom-light {
+    background-color: var(--light-bg);
+}
+
+/* 6. Form Styling */
 .form-control, .form-select {
-    border-radius: 8px; /* Softer edges */
-    padding: 10px;
-    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
 }
 
 .form-control:focus, .form-select:focus {
-    border-color: var(--accent-color);
-    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(197, 160, 101, 0.25);
 }
 
-.btn-primary {
-    background-color: var(--primary-color);
-    border: none;
-    padding: 12px 20px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-}
-
-.btn-primary:hover {
-    background-color: #1a252f; /* Darker Navy on hover */
-}
-
-/* LAB 4: Mapping Principle - Ensure images look right */
+/* 7. Image Handling */
 .card-img-top {
     height: 200px;
     object-fit: cover;
     border-bottom: 1px solid #eee;
+}
+
+.team-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* Ensures avatars aren't squished */
+}
+
+/* Footer */
+footer {
+    border-top: 5px solid var(--primary-color);
+}
+
+/* Icons */
+.bi-scissors, .bi-geo-alt-fill, .bi-clock-fill {
+    color: var(--primary-color);
 }
