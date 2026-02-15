@@ -1,25 +1,16 @@
 /* styles/main.css */
 
-:root {    
-    /* Primary */
+:root {
+    /* THEME: Warm Minimalist */
     --primary-color: #c5a065; 
-    
-    /* Dark Wood */
     --dark-wood: #8d6e42; 
-    
-    /* Accent */
     --accent-color: #5d9b5e; 
-    
-    /* Backgrounds */
     --light-bg: #fdfbf7;
     --white-bg: #ffffff;
-    
-    /* Text */
     --text-main: #4a4a4a;
     --text-light: #777777;
 }
 
-/* Enable smooth scrolling for the whole page */
 html {
     scroll-behavior: smooth;
 }
@@ -79,7 +70,15 @@ h2 {
     font-weight: 700;
 }
 
-/* 4. Buttons */
+/* 4. Table Styling (New for Schedule) */
+.table thead.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+.text-success {
+    color: var(--accent-color) !important;
+}
+
+/* 5. Buttons */
 .btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
@@ -104,7 +103,7 @@ h2 {
     color: white;
 }
 
-/* 5. Service Cards */
+/* 6. Service Cards */
 .service-card {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     background: white;
@@ -127,12 +126,12 @@ h2 {
     color: var(--accent-color) !important;
 }
 
-/* 6. Booking Section */
+/* 7. Booking Section */
 .bg-custom-light {
     background-color: var(--light-bg);
 }
 
-/* 7. Form Styling */
+/* 8. Form Styling */
 .form-control, .form-select {
     border-radius: 4px;
     padding: 12px;
@@ -144,7 +143,7 @@ h2 {
     box-shadow: 0 0 0 0.2rem rgba(197, 160, 101, 0.25);
 }
 
-/* 8. Image Handling */
+/* 9. Image Handling */
 .card-img-top {
     height: 200px;
     object-fit: cover;
@@ -154,7 +153,7 @@ h2 {
 .team-img {
     width: 150px;
     height: 150px;
-    object-fit: cover; 
+    object-fit: cover;
 }
 
 /* Footer */
