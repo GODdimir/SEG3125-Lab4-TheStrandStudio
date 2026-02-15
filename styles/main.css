@@ -1,0 +1,94 @@
+/* styles/main.css */
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.hero-section {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+    text-align: center;
+}
+
+/* Ensure images map correctly to the user's expectations */
+.service-img {
+    height: 150px;
+    object-fit: cover;
+}
+/* THEME: Fun, Creative, & Bold */
+:root {
+    --primary-color: #6f42c1; /* Vibrant Purple */
+    --accent-color: #ffc107;  /* Bright Yellow for actions */
+    --light-bg: #f3f0ff;      /* Light lavender background */
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+/* 1. Custom Navbar Color */
+.bg-custom {
+    background: linear-gradient(90deg, var(--primary-color) 0%, #8e44ad 100%);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* 2. Hero Section - Make it pop! */
+.hero-section {
+    background-color: var(--light-bg);
+    padding: 80px 0;
+    text-align: center;
+    border-bottom: 5px solid var(--accent-color); /* Fun border accent */
+}
+
+.hero-section h1 {
+    color: var(--primary-color);
+    font-weight: 800; /* Extra bold */
+}
+
+/* 3. Card Styling (Experts & Services) */
+.card {
+    border: none; /* Cleaner look */
+    border-radius: 15px; /* Softer, friendlier edges */
+    transition: transform 0.3s ease; /* Fun hover effect */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Card "jumps" up when you hover */
+}
+
+.card-title {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* 4. Buttons */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #5a32a3; /* Darker purple on hover */
+}
+
+/* 5. Section Headers */
+h2 {
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Add a little underline decoration to headers */
+h2::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 3px;
+    background: var(--accent-color);
+    margin: 10px auto 0;
+}
