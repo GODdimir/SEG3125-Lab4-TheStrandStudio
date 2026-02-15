@@ -1,94 +1,105 @@
 /* styles/main.css */
 
-body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-.hero-section {
-    background-color: #f8f9fa;
-    padding: 60px 0;
-    text-align: center;
-}
-
-/* Ensure images map correctly to the user's expectations */
-.service-img {
-    height: 150px;
-    object-fit: cover;
-}
-/* THEME: Fun, Creative, & Bold */
 :root {
-    --primary-color: #6f42c1; /* Vibrant Purple */
-    --accent-color: #ffc107;  /* Bright Yellow for actions */
-    --light-bg: #f3f0ff;      /* Light lavender background */
+    /* BRIGHTER THEME: Navy Blue, Slate, and White */
+    --primary-color: #2c3e50; /* Navy Blue - Professional & Bold */
+    --secondary-color: #95a5a6; /* Slate Grey - Clean accents */
+    --accent-color: #3498db;  /* Bright Blue - For buttons/highlights */
+    --light-bg: #f8f9fa;      /* Very light grey for section contrast */
 }
 
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #333;
+    line-height: 1.6;
 }
 
-/* 1. Custom Navbar Color */
-.bg-custom {
-    background: linear-gradient(90deg, var(--primary-color) 0%, #8e44ad 100%);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+/* 1. Navbar */
+.navbar-brand {
+    color: var(--primary-color) !important;
+    letter-spacing: 1px;
+}
+.nav-link {
+    color: #555 !important;
+    font-weight: 500;
+}
+.nav-link:hover {
+    color: var(--accent-color) !important;
 }
 
-/* 2. Hero Section - Make it pop! */
+/* 2. Hero Section - Bright & Airy */
 .hero-section {
-    background-color: var(--light-bg);
-    padding: 80px 0;
+    background-color: white;
+    padding: 100px 0;
     text-align: center;
-    border-bottom: 5px solid var(--accent-color); /* Fun border accent */
+    /* Subtle texture or very light gradient */
+    background: linear-gradient(to bottom, #ffffff 0%, #f1f2f6 100%);
 }
 
 .hero-section h1 {
     color: var(--primary-color);
-    font-weight: 800; /* Extra bold */
+    letter-spacing: -1px;
 }
 
-/* 3. Card Styling (Experts & Services) */
-.card {
-    border: none; /* Cleaner look */
-    border-radius: 15px; /* Softer, friendlier edges */
-    transition: transform 0.3s ease; /* Fun hover effect */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+/* 3. Section Styling */
+section {
+    position: relative;
 }
 
-.card:hover {
-    transform: translateY(-5px); /* Card "jumps" up when you hover */
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* 4. Service Cards - Clean & Minimal */
+.service-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: white;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
 }
 
 .card-title {
-    color: var(--primary-color);
     font-weight: bold;
+    color: var(--primary-color);
+    margin-top: 15px;
 }
 
-/* 4. Buttons */
+/* 5. Booking Section Background */
+.bg-custom-light {
+    background-color: #e9ecef; /* Slightly darker grey to frame the form */
+}
+
+/* 6. Form Styling (Affordance) */
+.form-control, .form-select {
+    border-radius: 8px; /* Softer edges */
+    padding: 10px;
+    border: 1px solid #ced4da;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
 .btn-primary {
     background-color: var(--primary-color);
-    border-color: var(--primary-color);
+    border: none;
+    padding: 12px 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .btn-primary:hover {
-    background-color: #5a32a3; /* Darker purple on hover */
+    background-color: #1a252f; /* Darker Navy on hover */
 }
 
-/* 5. Section Headers */
-h2 {
-    color: #444;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 30px;
-    position: relative;
-    display: inline-block;
-}
-
-/* Add a little underline decoration to headers */
-h2::after {
-    content: '';
-    display: block;
-    width: 50%;
-    height: 3px;
-    background: var(--accent-color);
-    margin: 10px auto 0;
+/* LAB 4: Mapping Principle - Ensure images look right */
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
 }

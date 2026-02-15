@@ -6,149 +6,205 @@
     <title>The Strand Studio</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <link href="styles/main.css" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-
     <link href="styles/main.css" rel="stylesheet">
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-custom sticky-top">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="#">
-            <i class="bi bi-scissors"></i> The Strand Studio
-        </a>
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto gap-2">
-                <li class="nav-item"><a class="nav-link" href="#experts">Meet the Team</a></li>
-                <li class="nav-item"><a class="nav-link" href="#services">Styles</a></li>
-                <li class="nav-item"><a class="btn btn-warning fw-bold text-dark" href="#book">Book Now!</a></li>
-            </ul>
+    <nav class="navbar navbar-expand-md navbar-light bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-uppercase" href="#">
+                <i class="bi bi-scissors"></i> The Strand Studio
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-3">
+                    <li class="nav-item"><a class="nav-link" href="#experience">The Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experts">Team</a></li>
+                    <li class="nav-item"><a class="btn btn-primary text-white px-4" href="#book">Book Now</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
     <header class="hero-section">
         <div class="container">
-            <h1 class="display-4">Welcome to The Strand Studio</h1>
-            <p class="lead">Where style meets precision.</p>
-            <p><i class="bi bi-geo-alt-fill"></i> 123 Fashion Ave, Ottawa, ON</p>
-            <p><i class="bi bi-clock-fill"></i> Open Mon-Sat: 10am - 8pm</p>
-            <a href="#book" class="btn btn-primary btn-lg mt-3">Book an Appointment</a>
+            <h1 class="display-3 fw-bold mb-3">Classic Cuts. Modern Vibe.</h1>
+            <p class="lead mb-4">Experience the precision of a classic barbershop in a bright, modern studio.</p>
+            
+            <div class="d-flex justify-content-center gap-4 text-muted mb-4">
+                <span><i class="bi bi-geo-alt-fill"></i> 123 Fashion Ave, Ottawa</span>
+                <span><i class="bi bi-clock-fill"></i> Mon-Sat: 10am - 8pm</span>
+            </div>
+
+            <a href="#book" class="btn btn-outline-dark btn-lg">View Schedule</a>
         </div>
     </header>
 
-    <div class="container mt-5">
-        
-        <section id="experts" class="mb-5">
-            <h2 class="text-center mb-4">Meet Our Stylists</h2>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 text-center p-3">
-                        <img src="https://via.placeholder.com/150" class="card-img-top rounded-circle mx-auto w-50" alt="Stylist Photo">
-                        <div class="card-body">
-                            <h5 class="card-title">Alex Rivera</h5>
-                            <p class="card-text text-muted">Senior Stylist</p>
-                            <p class="card-text">Specializes in modern cuts and color corrections.</p>
-                        </div>
-                    </div>
+    <section id="experience" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <img src="https://via.placeholder.com/600x400?text=Studio+Interior" class="img-fluid rounded shadow-sm" alt="Studio Interior">
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 text-center p-3">
-                        <img src="https://via.placeholder.com/150" class="card-img-top rounded-circle mx-auto w-50" alt="Stylist Photo">
-                        <div class="card-body">
-                            <h5 class="card-title">Sam Lee</h5>
-                            <p class="card-text text-muted">Barber Expert</p>
-                            <p class="card-text">Master of fades and beard sculpting.</p>
+                <div class="col-md-6 mt-4 mt-md-0">
+                    <h2 class="fw-bold">The Studio Experience</h2>
+                    <p class="lead text-secondary">Relaxed. Professional. Precise.</p>
+                    <p>Just like the classic shops of the past, we believe a haircut is an experience, not just a chore. We combine traditional barbering techniques with a bright, welcoming atmosphere where you can relax and unwind.</p>
+                    <div class="row mt-4">
+                        <div class="col-6">
+                            <i class="bi bi-wifi fs-4 text-primary"></i>
+                            <h5 class="mt-2">Free WiFi</h5>
+                        </div>
+                        <div class="col-6">
+                            <i class="bi bi-cup-hot fs-4 text-primary"></i>
+                            <h5 class="mt-2">Coffee Bar</h5>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="services" class="mb-5">
-            <h2 class="text-center mb-4">Our Services</h2>
+    <section id="services" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Our Menu</h2>
+                <p class="text-muted">Simple pricing. Exceptional results.</p>
+            </div>
+            
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">
-                    <div class="card h-100">
-                        <img src="https://via.placeholder.com/300x150?text=Short+Cut" class="card-img-top service-img" alt="Short Cut Example">
-                        <div class="card-body">
-                            <h5 class="card-title">The Pixie / Short Cut</h5>
-                            <p class="card-text">Precision cut for short styles.</p>
-                            <h6 class="text-primary">$45.00</h6>
+                    <div class="card h-100 border-0 shadow-sm service-card">
+                        <img src="https://via.placeholder.com/300x200?text=The+Classic+Cut" class="card-img-top" alt="Short Cut">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">The Classic</h4>
+                            <p class="card-text text-muted">Scissor cut & style.</p>
+                            <h5 class="text-primary fw-bold">$45.00</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card h-100">
-                        <img src="https://via.placeholder.com/300x150?text=Medium+Cut" class="card-img-top service-img" alt="Medium Cut Example">
-                        <div class="card-body">
-                            <h5 class="card-title">Shoulder Length / Bob</h5>
-                            <p class="card-text">Classic bobs and layered medium cuts.</p>
-                            <h6 class="text-primary">$55.00</h6>
+                    <div class="card h-100 border-0 shadow-sm service-card">
+                        <img src="https://via.placeholder.com/300x200?text=Fade+%26+Beard" class="card-img-top" alt="Fade Cut">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">Fade & Beard</h4>
+                            <p class="card-text text-muted">Skin fade with beard sculpt.</p>
+                            <h5 class="text-primary fw-bold">$55.00</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card h-100">
-                        <img src="https://via.placeholder.com/300x150?text=Long+Cut" class="card-img-top service-img" alt="Long Cut Example">
-                        <div class="card-body">
-                            <h5 class="card-title">Long Layers</h5>
-                            <p class="card-text">Maintenance and styling for long hair.</p>
-                            <h6 class="text-primary">$65.00</h6>
+                    <div class="card h-100 border-0 shadow-sm service-card">
+                        <img src="https://via.placeholder.com/300x200?text=Full+Service" class="card-img-top" alt="Long Cut">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">The Works</h4>
+                            <p class="card-text text-muted">Cut, wash, & hot towel shave.</p>
+                            <h5 class="text-primary fw-bold">$65.00</h5>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="book" class="mb-5 bg-light p-4 rounded border">
-            <h2 class="mb-3">Book Your Appointment</h2>
-            <form>
-                <div class="mb-3">
-                    <label for="serviceSelect" class="form-label">Choose Service</label>
-                    <select class="form-select" id="serviceSelect" aria-label="Select Service">
-                        <option selected>Open this select menu</option>
-                        <option value="1">Short Cut ($45)</option>
-                        <option value="2">Medium Cut ($55)</option>
-                        <option value="3">Long Layers ($65)</option>
-                    </select>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="dateInput" class="form-label">Date</label>
-                        <input type="date" class="form-control" id="dateInput">
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="timeInput" class="form-label">Time</label>
-                        <input type="time" class="form-control" id="timeInput">
+    <section id="experts" class="py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">Meet The Barbers</h2>
+            <div class="row justify-content-center g-4">
+                <div class="col-md-4">
+                    <div class="text-center">
+                        <img src="https://via.placeholder.com/150" class="rounded-circle mb-3 border border-3 border-light shadow-sm" alt="Alex">
+                        <h5>Alex Rivera</h5>
+                        <p class="text-primary small text-uppercase fw-bold">Senior Stylist</p>
+                        <p class="text-muted small">"Precision is key. I focus on structural cuts that grow out perfectly."</p>
                     </div>
                 </div>
-
-                <div class="mb-3">
-                    <label for="nameInput" class="form-label">Full Name</label>
-                    <input type="text" class="form-control" id="nameInput" placeholder="Jane Doe">
+                <div class="col-md-4">
+                    <div class="text-center">
+                        <img src="https://via.placeholder.com/150" class="rounded-circle mb-3 border border-3 border-light shadow-sm" alt="Sam">
+                        <h5>Sam Lee</h5>
+                        <p class="text-primary small text-uppercase fw-bold">Master Barber</p>
+                        <p class="text-muted small">"I specialize in classic fades and traditional straight razor shaves."</p>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="emailInput" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="emailInput" placeholder="name@example.com">
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="book" class="py-5 bg-custom-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card shadow border-0">
+                        <div class="card-body p-5">
+                            <h2 class="text-center mb-4">Book Appointment</h2>
+                            
+                            <form>
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="stylistSelect" class="form-label fw-bold">1. Choose Professional</label>
+                                        <select class="form-select" id="stylistSelect">
+                                            <option selected>Any Professional</option>
+                                            <option value="alex">Alex Rivera</option>
+                                            <option value="sam">Sam Lee</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="serviceSelect" class="form-label fw-bold">2. Choose Service</label>
+                                        <select class="form-select" id="serviceSelect">
+                                            <option selected>Select a Service...</option>
+                                            <option value="45">The Classic ($45)</option>
+                                            <option value="55">Fade & Beard ($55)</option>
+                                            <option value="65">The Works ($65)</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="dateInput" class="form-label fw-bold">3. Date</label>
+                                        <input type="date" class="form-control" id="dateInput">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="timeInput" class="form-label fw-bold">4. Time</label>
+                                        <input type="time" class="form-control" id="timeInput">
+                                    </div>
+                                </div>
+
+                                <hr class="my-4">
+
+                                <div class="mb-3">
+                                    <label for="nameInput" class="form-label">Your Name</label>
+                                    <input type="text" class="form-control" id="nameInput" placeholder="Full Name">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="emailInput" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="emailInput" placeholder="name@example.com">
+                                    <div class="form-text">We'll send your confirmation here.</div>
+                                </div>
+
+                                <div class="alert alert-light border text-center my-3" role="alert">
+                                    <small>You are booking <strong>The Classic</strong> with <strong>Alex</strong> on <strong>Feb 15</strong>.</small>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary w-100 btn-lg">Confirm Booking</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <button type="submit" class="btn btn-success w-100 btn-lg">Confirm Booking</button>
-            </form>
-        </section>
-
-    </div>
-
-    <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; 2026 The Strand Studio. Designed for SEG3125.</p>
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 The Strand Studio. Modeled for SEG3125 Lab 4.</p>
+            <small class="text-secondary">Designed with Visibility, Feedback, and Mapping principles.</small>
+        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
