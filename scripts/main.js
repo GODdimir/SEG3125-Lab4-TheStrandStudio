@@ -6,7 +6,7 @@ const serviceSelect = document.getElementById('serviceSelect');
 const dateInput = document.getElementById('dateInput');
 const timeInput = document.getElementById('timeInput');
 const bookingSummary = document.getElementById('bookingSummary');
-const bookingForm = document.querySelector('form');
+const bookingForm = document.getElementById('appointmentForm');
 
 // --- 2. SCHEDULE CONFIGURATION ---
 // 0=Sun, 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri, 6=Sat
@@ -34,49 +34,101 @@ const shopHours = {
     }
 };
 
-// --- 3. VALIDATION LOGIC ---
+// --- 3. LAB 5 REGULAR EXPRESSIONS & VALIDATION ---
+const nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]+$/; // Letters, spaces, hyphens
+const phoneRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/; // Various 10-digit formats
+const ccRegex = /^(?:\d[ -]*?){13,16}$/; // 13-16 digits with optional spaces/dashes
+
+function validateTextFields() {
+    let isValid = true;
+    
+    const nameInput = document.getElementById('nameInput');
+    const phoneInput = document.getElementById('phoneInput');
+    const ccInput = document.getElementById('ccInput');
+
+    // Name Validation
+    if (nameInput.value && !nameRegex.test(nameInput.value)) {
+        nameInput.classList.add('is-invalid');
+        isValid = false;
+    } else if (nameInput.value) {
+        nameInput.classList.remove('is-invalid');
+        nameInput.classList.add('is-valid');
+    } else {
+        nameInput.classList.add('is-invalid');
+        isValid = false;
+    }
+
+    // Phone Validation
+    if (phoneInput.value && !phoneRegex.test(phoneInput.value)) {
+        phoneInput.classList.add('is-invalid');
+        isValid = false;
+    } else if (phoneInput.value) {
+        phoneInput.classList.remove('is-invalid');
+        phoneInput.classList.add('is-valid');
+    } else {
+        phoneInput.classList.add('is-invalid');
+        isValid = false;
+    }
+
+    // CC Validation
+    if (ccInput.value && !ccRegex.test(ccInput.value)) {
+        ccInput.classList.add('is-invalid');
+        isValid = false;
+    } else if (ccInput.value) {
+        ccInput.classList.remove('is-invalid');
+        ccInput.classList.add('is-valid');
+    } else {
+        ccInput.classList.add('is-invalid');
+        isValid = false;
+    }
+
+    return isValid;
+}
+
+// Check schedule logic with inline feedback
 function validateBooking() {
     const dateValue = dateInput.value;
     const stylistValue = stylistSelect.value;
     const timeValue = timeInput.value;
 
-    // A. Check Date Validity
     if (dateValue) {
-        const dateObj = new Date(dateValue + 'T00:00:00'); // Force local time
-        const dayOfWeek = dateObj.getDay(); // 0 = Sunday
+        // Adjust for local timezone accurately
+        const dateParts = dateValue.split('-');
+        const dateObj = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]); 
+        const dayOfWeek = dateObj.getDay(); 
         
-        // Determine which rules to use (Alex, Sam, or Generic)
         const rules = shopHours[stylistValue] || shopHours["any"];
 
         // 1. Check Off Days
         if (rules.offDays.includes(dayOfWeek)) {
-            alert("Sorry, this stylist is not available on this day. Please check the schedule.");
-            dateInput.value = ""; // Clear the invalid date
-            return false; // Stop validation
+            dateInput.classList.add('is-invalid');
+            dateInput.value = ""; 
+            return false; 
+        } else {
+            dateInput.classList.remove('is-invalid');
         }
 
-        // 2. Check Time Validity (if a time is selected)
+        // 2. Check Time Validity
         if (timeValue) {
             const hour = parseInt(timeValue.split(':')[0]);
-            
-            // Get open/close hours for this specific day
             const dailyHours = rules.hours[dayOfWeek] || rules.hours["default"];
             const open = dailyHours[0];
             const close = dailyHours[1];
 
             if (hour < open || hour >= close) {
-                alert(`Sorry, hours on this day are ${open}:00 to ${close}:00.`);
-                timeInput.value = ""; // Clear invalid time
+                timeInput.classList.add('is-invalid');
+                timeInput.value = ""; 
                 return false;
+            } else {
+                timeInput.classList.remove('is-invalid');
             }
         }
     }
-    return true; // All checks passed
+    return true; 
 }
 
 // --- 4. UPDATE SUMMARY LOGIC ---
 function updateBookingSummary() {
-    // Run validation first
     if (!validateBooking()) return;
 
     const stylist = stylistSelect.options[stylistSelect.selectedIndex].text;
@@ -102,25 +154,51 @@ function updateBookingSummary() {
 
 // --- 5. HANDLE FORM SUBMISSION ---
 bookingForm.addEventListener('submit', function(event) {
-    event.preventDefault(); // Stop reload
+    event.preventDefault(); 
+    
+    // Run all validations
+    const isScheduleValid = validateBooking();
+    const isTextValid = validateTextFields();
 
-    // Final check before "submitting"
     if (serviceSelect.value === "Select a Service...") {
-        alert("Please select a service.");
+        serviceSelect.classList.add('is-invalid');
+        return;
+    } else {
+        serviceSelect.classList.remove('is-invalid');
+        serviceSelect.classList.add('is-valid');
+    }
+    
+    if (!dateInput.value) {
+        dateInput.classList.add('is-invalid');
         return;
     }
 
-    if (validateBooking()) {
-        alert("Success! Your appointment is booked.");
+    if (isScheduleValid && isTextValid && dateInput.value !== "") {
+        alert("Success! Your appointment and payment have been securely processed.");
         bookingForm.reset();
+        
+        // Remove validation styling
+        const inputs = bookingForm.querySelectorAll('.form-control, .form-select');
+        inputs.forEach(input => {
+            input.classList.remove('is-valid', 'is-invalid');
+        });
+
         bookingSummary.innerHTML = "Select a professional, service, and date to see your summary.";
         bookingSummary.classList.add('text-muted');
         bookingSummary.classList.remove('text-success');
     }
 });
 
-// --- 6. EVENT LISTENERS ---
+// --- 6. EVENT LISTENERS & INITIALIZATION ---
 stylistSelect.addEventListener('change', updateBookingSummary);
 serviceSelect.addEventListener('change', updateBookingSummary);
 dateInput.addEventListener('change', updateBookingSummary);
 timeInput.addEventListener('change', updateBookingSummary);
+
+// Lab 5: Initialize Bootstrap Tooltips
+document.addEventListener("DOMContentLoaded", function(){
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+});

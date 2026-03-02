@@ -70,7 +70,7 @@ h2 {
     font-weight: 700;
 }
 
-/* 4. Table Styling (New for Schedule) */
+/* 4. Table Styling */
 .table thead.bg-primary {
     background-color: var(--primary-color) !important;
 }
@@ -131,16 +131,26 @@ h2 {
     background-color: var(--light-bg);
 }
 
-/* 8. Form Styling */
+/* 8. Form Styling & Affordance (Lab 5) */
 .form-control, .form-select {
     border-radius: 4px;
     padding: 12px;
     border: 1px solid #e0e0e0;
+    transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.form-control:focus, .form-select:focus {
+/* Make the field bigger on hover to indicate interactability */
+.form-control:hover, .form-select:hover {
+    transform: scale(1.02);
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.2rem rgba(197, 160, 101, 0.25);
+}
+
+/* Change color and keep bigger on click/focus */
+.form-control:focus, .form-select:focus {
+    transform: scale(1.02);
+    background-color: #fdfaf4; /* Slight warm tint */
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(197, 160, 101, 0.4);
 }
 
 /* 9. Image Handling */
@@ -159,9 +169,4 @@ h2 {
 /* Footer */
 footer {
     border-top: 5px solid var(--primary-color);
-}
-
-/* Icons */
-.bi-scissors, .bi-geo-alt-fill, .bi-clock-fill {
-    color: var(--primary-color);
 }
