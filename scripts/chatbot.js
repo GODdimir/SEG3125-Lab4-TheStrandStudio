@@ -13,8 +13,9 @@
 
   // offDays: 0=Sun, 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri, 6=Sat
   const BARBERS = {
-    alex: { key: 'alex', name: 'Alex Rivera', title: 'Senior Stylist',  offDays: [0, 3] },
-    sam:  { key: 'sam',  name: 'Sam Lee',     title: 'Master Barber',   offDays: [0, 1] }
+    alex:   { key: 'alex',   name: 'Alex Rivera',      title: 'Senior Stylist',   offDays: [0, 3] },
+    sam:    { key: 'sam',   name: 'Sam Lee',          title: 'Master Barber',    offDays: [0, 1] },
+    xavier: { key: 'xavier', name: 'Xavier Godmaire', title: 'Style Specialist', offDays: [0, 2] }
   };
 
   const DAY_NAMES    = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
@@ -57,6 +58,7 @@
     const t = text.toLowerCase();
     if (/\balex\b/.test(t))                                  return 'alex';
     if (/\bsam\b/.test(t))                                   return 'sam';
+    if (/\bxavier\b/.test(t))                                return 'xavier';
     if (/\b(any|either|no\s*pref|don'?t\s*care|whoever)\b/.test(t)) return 'any';
     return null;
   }
@@ -169,7 +171,7 @@
     if (/\b(service|menu|offer|price|cost|how\s*much|what\s*do\s*you\s*(do|offer|have))\b/.test(t)) return 'services';
     if (/\b(hour|open|close|closing|when|time.*open|business\s*hours)\b/.test(t))       return 'hours';
     if (/\b(where|location|address|find\s*you|located|direction)\b/.test(t))             return 'location';
-    if (/\b(who|team|barber|staff|stylist|meet|alex|sam)\b/.test(t))                    return 'team';
+    if (/\b(who|team|barber|staff|stylist|meet|alex|sam|xavier)\b/.test(t))             return 'team';
     if (/\b(yes|yeah|yep|yup|correct|confirm|book\s*it|looks\s*good|that'?s\s*right|sure|ok|okay|sounds\s*good|perfect|go\s*ahead|do\s*it)\b/.test(t)) return 'confirm';
     if (/\b(no|nope|cancel|start\s*over|restart|change|different|wrong|never\s*mind)\b/.test(t)) return 'deny';
     if (/\b(bye|goodbye|thanks|thank\s*you|that'?s\s*all|done|see\s*you)\b/.test(t))   return 'bye';
@@ -274,7 +276,7 @@
       const svc = SERVICES[S.service];
       return msg(
         `Great choice — **${svc.name}** (${svc.price}). Do you have a preferred barber?`,
-        ['Alex Rivera', 'Sam Lee', 'No preference']
+        ['Alex Rivera', 'Sam Lee', 'Xavier Godmaire', 'No preference']
       );
     }
     return advanceToDate();
@@ -384,9 +386,9 @@
       return advanceToDate();
     }
     return noMatch([
-      "Please choose a barber — Alex Rivera, Sam Lee — or say 'no preference'.",
-      "Who would you prefer? Alex Rivera, Sam Lee, or no preference?"
-    ], ['Alex Rivera', 'Sam Lee', 'No preference']);
+      "Please choose a barber — Alex Rivera, Sam Lee, Xavier Godmaire — or say 'no preference'.",
+      "Who would you prefer? Alex Rivera, Sam Lee, Xavier Godmaire, or no preference?"
+    ], ['Alex Rivera', 'Sam Lee', 'Xavier Godmaire', 'No preference']);
   }
 
   function stateBookDate(text, intent) {
@@ -553,8 +555,8 @@
   function goTeam() {
     S.state = 'info_team';
     return msg(
-      "👤 **Alex Rivera** — Senior Stylist\n_\"Precision is key. I focus on structural cuts that grow out perfectly.\"_\n🗓 Available: Mon, Tue, Thu, Fri, Sat\n\n👤 **Sam Lee** — Master Barber\n_\"I specialise in classic fades and traditional straight razor shaves.\"_\n🗓 Available: Tue, Wed, Thu, Fri, Sat\n\nWould you like to book with one of them?",
-      ['Book with Alex', 'Book with Sam', 'Back to menu']
+      "👤 **Alex Rivera** — Senior Stylist\n_\"Precision is key. I focus on structural cuts that grow out perfectly.\"_\n🗓 Available: Mon, Tue, Thu, Fri, Sat\n\n👤 **Sam Lee** — Master Barber\n_\"I specialise in classic fades and traditional straight razor shaves.\"_\n🗓 Available: Tue, Wed, Thu, Fri, Sat\n\n👤 **Xavier Godmaire** — Style Specialist\n_\"Every cut tells a story. I make sure yours is worth telling.\"_\n🗓 Available: Mon, Wed, Thu, Fri, Sat\n\nWould you like to book with one of them?",
+      ['Book with Alex', 'Book with Sam', 'Book with Xavier', 'Back to menu']
     );
   }
 
@@ -566,9 +568,9 @@
     if (intent === 'hours')    return goHours();
     if (/\bback\b|\bmenu\b/i.test(text)) { S.state = 'main_menu'; return msg("What else can I help you with?", ['Book an appointment', 'Our services', 'Hours & location']); }
     return noMatch([
-      "Would you like to book with Alex or Sam?",
-      "Say 'book with Alex' or 'book with Sam' to get started!"
-    ], ['Book with Alex', 'Book with Sam', 'Back to menu']);
+      "Would you like to book with Alex, Sam, or Xavier?",
+      "Say 'book with Alex', 'book with Sam', or 'book with Xavier' to get started!"
+    ], ['Book with Alex', 'Book with Sam', 'Book with Xavier', 'Back to menu']);
   }
 
   // ---- UTILITIES ---------------------------------------------
